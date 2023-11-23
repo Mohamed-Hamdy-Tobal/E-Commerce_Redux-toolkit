@@ -1,0 +1,65 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px;
+    margin : 0px;
+}
+:root {
+    --main-color : #ec407a;
+    --main-trans : 0.3s;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Nunito', sans-serif !important;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin : 0px;
+}
+a {
+    text-decoration: none !important;
+    transition: var(--main-trans);
+    -webkit-transition: var(--main-trans);
+    -moz-transition: var(--main-trans);
+    -ms-transition: var(--main-trans);
+    -o-transition: var(--main-trans);
+}
+input:focus,
+textarea:focus  {
+    outline: none;
+}
+
+
+/* --------- Start Styling -------------- */
+
+/* --- Start Header --- */
+nav {
+    background-color: #333;
+    height: 70px;
+}
+nav .head {
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+}
+nav .nav-bag {
+    color: #fff
+}
+nav .nav-bag .bag-quantity{
+    position: absolute;
+    top: 10px;
+    right: -12px;
+    background: #FF9800;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: 800;
+}
+/* --- End Header --- */
