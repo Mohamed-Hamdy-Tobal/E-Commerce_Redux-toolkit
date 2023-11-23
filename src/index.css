@@ -37,29 +37,71 @@ textarea:focus  {
 /* --------- Start Styling -------------- */
 
 /* --- Start Header --- */
-nav {
-    background-color: #333;
-    height: 70px;
+/* nav {
+    background-color: #fbfbfb;
+} */
+nav .logo {
+    width: 70px;
 }
-nav .head {
-    font-size: 30px;
+nav .links {
+    gap: 15px;
+}
+nav .nav-item {
+    color: #333;
     font-weight: 600;
-    color: #fff;
 }
-nav .nav-bag {
+nav .navbar-toggler {
+    margin-left: auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: none;
+    margin-right: 10px;
+    width: 43px;
+}
+.navbar-toggler-icon{
+    width: 35px !important;
+}
+.navbar-toggler {
+    border: none;
+    background-color: transparent !important;
+}
+nav .icon-toggler {
+    font-size: 25px;
     color: #fff
 }
-nav .nav-bag .bag-quantity{
-    position: absolute;
-    top: 10px;
-    right: -12px;
-    background: #FF9800;
-    width: 22px;
-    height: 22px;
-    text-align: center;
-    border-radius: 50%;
-    line-height: 22px;
-    font-size: 14px;
-    font-weight: 800;
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0 !important;
+    box-shadow: 0 0 0 !important;
+}
+.toggle-switch {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
 }
 /* --- End Header --- */
+
+
+@media (max-width: 991px) {
+    nav .navbar-collapse {
+        position: absolute;
+        top: 96px;
+        left: 0;
+        width: 100%;
+        background: rgb(0 0 0 / 65%);
+        padding: 0px;
+    }
+    nav .nav-link {
+        text-align: center;
+    }
+    nav .nav-link:hover {
+        background: #3f3f3f;
+        text-align: center;
+    }
+    nav .nav-item {
+        color: #fff;
+        font-weight: 600;
+    }
+}
