@@ -13,12 +13,10 @@ export const Slider = () => {
             <div className="imgs-container h-100">
                 {sliderData.map((item, idx) => {
                     return (
-                        <>
                         <div key={idx} className={`img-group ${parseInt(item.id) == value? 'show-img-slider h-100': 'hide-img-slider'}`}>
                             {parseInt(item.id) == value && (<div className="slider-img h-100" ><img src={item.img} alt="img" className="h-100 w-100 object-fit-cover"/></div>)}
                             {parseInt(item.id) == value && (<div className="img-txt"><p>{item.text}</p></div>)}
                         </div>
-                        </>
                     )
                 })}
                 <div className="d-flex justify-content-center mb-3 main-dots">
