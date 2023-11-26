@@ -180,6 +180,18 @@ nav .icon-toggler {
 .arrows-btn .arrow:hover svg {
     color: #fff
 }
+.main-selected .selected-btn {
+    width: 110px !important;
+}
+.main-selected .selected-btn:hover {
+    color: #fff;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+.main-selected .sale-50 {
+    color: #FFEB3B !important;
+    font-weight: 800;
+}
 /* --- End Home --- */
 
 
