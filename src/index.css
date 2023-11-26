@@ -188,7 +188,7 @@ nav .icon-toggler {
     background-color: var(--main-color);
     border-color: var(--main-color);
 }
-.main-selected .sale-50 {
+.main-navigate .sales h3 {
     color: #FFEB3B !important;
     font-weight: 800;
 }
