@@ -10,7 +10,7 @@ const productsSlice = createSlice({
         setFilterProducts: (state, action) => {
             try {
                 // Try To Get Data From Json File
-                const filter = storeData.filter(product => { product.type == action.payload })
+                const filter = storeData.filter(product => (product.type) === action.payload )
                 state.filterProducts = filter
                 console.log('filter', filter)
 
@@ -27,3 +27,5 @@ const productsSlice = createSlice({
 export const { setFilterProducts } = productsSlice.actions
 
 export default productsSlice.reducer
+
+// 10

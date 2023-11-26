@@ -1,17 +1,27 @@
 import { Button } from "react-bootstrap";
 import salesimg from '../../assets/images/clothes.jpg';
+import { useDispatch } from "react-redux";
+import { setFilterProducts } from "../../Store/Reducers/productsSlice";
 
 export const NavigateBtns = () => {
 
     const buttons = ['Hoodies', 'T-Shirts', 'Shoes', 'Dresses', 'Suits', 'Jeans', 'Jackets', 'Bags'];
 
-    console.log(buttons)
-
+    const dispatch = useDispatch()
+    
     return (
         <div className="main-navigate">
             <div className="d-flex justify-content-center align-items-center p-lg-5 p-3 gap-3 main-selected flex-wrap">
                 {buttons.map((button, idx) => (
-                    <Button className="selected-btn" key={idx} color="gray" size="lg" variant="outline-secondary" ripple='true'>{button}</Button>
+                    <Button 
+                    className="selected-btn" 
+                    key={idx} 
+                    color="gray" 
+                    size="lg" 
+                    variant="outline-secondary" 
+                    ripple='true'
+                    onClick={() => dispatch(setFilterProducts(button))}
+                    >{button}</Button>
                 ))}
             </div>
             <div className="sales p-2 rounded-2 bg-success">
