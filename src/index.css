@@ -195,6 +195,53 @@ nav .icon-toggler {
 /* --- End Home --- */
 
 
+/* --- Start Cards --- */
+.products .card-product {
+    width: 25%;
+}
+.products .products-title::before {
+    content: '';
+    position: absolute;
+    width: 45%;
+    height: 4px;
+    bottom: 12px;
+    left: 0;
+    background-color: var(--main-color);
+    margin-left: 1rem!important;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+.products .products-title:hover::before {
+    width: 65%;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .products .card-product {
+        width: 33%;
+    }
+}
+.products .card-product .color-icon{
+    display: inline-block;
+    width: 16px !important;
+    height: 16px !important;
+    cursor: pointer;
+}
+.products .card-product .main-img{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.products .card-product .main-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+/* --- End Cards --- */
+
+
 @media (max-width: 991px) {
     nav .navbar-collapse {
         position: absolute;
@@ -214,5 +261,20 @@ nav .icon-toggler {
     nav .nav-item {
         color: #fff;
         font-weight: 600;
+    }
+    .products .card-product {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .products .card-product {
+        width: 100%;
+    }
+    .products .card-product .main-img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow: hidden;
     }
 }
