@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-import { Container } from 'react-bootstrap';
+import { useState } from 'react';
+import { Button, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
 
 const SingleProduct = () => {
 
@@ -13,6 +13,11 @@ const SingleProduct = () => {
     const {singlePro} = useSelector((state) => state.filterProducts)
     console.log('singlePro Here', singlePro)
 
+    const [size, setSize] = useState('size')
+    console.log('size ', size)
+
+    const [color, setColor] = useState('color')
+    console.log('color ', color)
 
     return (
         <div className="single-product sec-padd">
@@ -25,8 +30,48 @@ const SingleProduct = () => {
                             </div>
                             <div className="col-lg-6">
                                 <h1 className='fw-bold'>{product.name}</h1>
-                                <p>{product.text}</p>
-                                <p>{product.price}</p>
+                                <p className='text-secondary pb-3'>{product.text}</p>
+                                {product.size ? (
+                                    <div className="main-select pb-2">
+                                    <label htmlFor="sizes" className='pb-2'>Pick A Size</label>
+                                    <select 
+                                    name="sizes" 
+                                    id="sizes" 
+                                    className="form-select mb-3" 
+                                    // value={size}
+                                    onChange={(e) => {setSize(e.target.value)}}>
+                                        <option selected disabled>Size</option>
+                                        {product.size.map((size, idx) => {
+                                            return (<option value={size} key={idx}>{size}</option>)
+                                        })}
+                                    </select>
+                                </div>
+                                ): ''}
+                                {product.color ? (
+                                    <div className="main-select pb-2">
+                                    <label htmlFor="colors" className='pb-2'>Pick A Color</label>
+                                    <select 
+                                    name="colors" 
+                                    id="colors" 
+                                    className="form-select mb-3" 
+                                    // value={size}
+                                    onChange={(e) => {setColor(e.target.value)}}>
+                                        <option selected disabled>Color</option>
+                                        {product.color.map((color, idx) => {
+                                            return (<option value={color} key={idx}>{color}</option>)
+                                        })}
+                                    </select>
+                                </div>
+                                ): ''}
+                                <Button 
+                                className="selected-add-card" 
+                                key={idx} 
+                                color="gray" 
+                                size="lg" 
+                                variant="outline-success" 
+                                ripple='true'
+                                // onClick={() => dispatch(setFilterProducts(button))}
+                                >Add To Cart</Button>
                             </div>
                         </div>
                     )

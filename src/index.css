@@ -243,6 +243,18 @@ nav .icon-toggler {
 }
 /* --- End Cards --- */
 
+/* --- Start Single Product --- */
+.single-product .selected-add-card {
+    color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}
+.single-product .selected-add-card:hover {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+    color: #fff !important;
+}
+/* --- End Single Product --- */
+
 
 @media (max-width: 991px) {
     nav .navbar-collapse {
