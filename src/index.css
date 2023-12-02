@@ -32,7 +32,9 @@ input:focus,
 textarea:focus  {
     outline: none;
 }
-
+.sec-padd {
+    padding: 60px 0;
+}
 
 /* --------- Start Styling -------------- */
 

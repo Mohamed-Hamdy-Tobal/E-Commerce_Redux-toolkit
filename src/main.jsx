@@ -9,6 +9,7 @@ import { Cart } from "./Pages/Cart";
 import { Provider } from "react-redux";
 import { store } from "./Store/Store";
 import FilteredProducts from "./Components/FilteredProducts/FilteredProducts";
+import SingleProduct from "./Components/FilteredProducts/SingleProduct";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
       {
         path: 'filterProducts/:type',
         element: <FilteredProducts/>
+      },
+      {
+        path: 'filterProducts/:type/:productID',
+        element: <SingleProduct/>
       }
     ]
   }
