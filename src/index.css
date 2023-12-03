@@ -256,6 +256,24 @@ nav .icon-toggler {
 /* --- End Single Product --- */
 
 
+/* --- Start Cart --- */
+.main-cart .start-shopping {
+    color: #999 !important;
+    font-size: 25px;
+    margin-top: 15px;
+    padding-left: 12px;
+    transition: var(--main-trans);
+    -webkit-transition: var(--main-trans);
+    -moz-transition: var(--main-trans);
+    -ms-transition: var(--main-trans);
+    -o-transition: var(--main-trans);
+}
+.main-cart .start-shopping:hover {
+    color: #555 !important;
+}
+/* --- End Cart --- */
+
+
 @media (max-width: 991px) {
     nav .navbar-collapse {
         position: absolute;
