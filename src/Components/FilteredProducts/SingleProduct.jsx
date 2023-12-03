@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const SingleProduct = () => {
+
+    const navigate = useNavigate()
 
     const params = useParams()
     console.log(params)
@@ -40,7 +42,7 @@ const SingleProduct = () => {
                                     className="form-select mb-3" 
                                     // value={size}
                                     onChange={(e) => {setSize(e.target.value)}}>
-                                        <option selected disabled>Size</option>
+                                        <option selected disabled value='Size'>Size</option>
                                         {product.size.map((size, idx) => {
                                             return (<option value={size} key={idx}>{size}</option>)
                                         })}
@@ -54,15 +56,16 @@ const SingleProduct = () => {
                                     name="colors" 
                                     id="colors" 
                                     className="form-select mb-3" 
-                                    // value={size}
+                                    // value={color}
                                     onChange={(e) => {setColor(e.target.value)}}>
-                                        <option selected disabled>Color</option>
+                                        <option selected disabled value='Color'>Color</option>
                                         {product.color.map((color, idx) => {
                                             return (<option value={color} key={idx}>{color}</option>)
                                         })}
                                     </select>
                                 </div>
                                 ): ''}
+                                <p className='fs-5'><span className='fw-bold'>Price : </span><span className='t text-success'>{product.price}$</span></p>
                                 <Button 
                                 className="selected-add-card" 
                                 key={idx} 
@@ -70,7 +73,7 @@ const SingleProduct = () => {
                                 size="lg" 
                                 variant="outline-success" 
                                 ripple='true'
-                                // onClick={() => dispatch(setFilterProducts(button))}
+                                onClick={() => navigate(`/filterProducts/${params.type}`)}
                                 >Add To Cart</Button>
                             </div>
                         </div>
