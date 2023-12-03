@@ -29,6 +29,10 @@ const routes = createBrowserRouter([
       {
         path: 'filterProducts/:type/:productID',
         element: <SingleProduct/>
+      },
+      {
+        path: 'cart',
+        element: <Cart/>
       }
     ]
   }
