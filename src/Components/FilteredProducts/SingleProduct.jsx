@@ -15,6 +15,7 @@ const SingleProduct = () => {
     const params = useParams()
 
     const {singlePro} = useSelector((state) => state.filterProducts)
+    console.log('singlePro ', singlePro)
 
     const [size, setSize] = useState('size')
     console.log('size ', size)
@@ -47,9 +48,9 @@ const SingleProduct = () => {
                                     name="sizes" 
                                     id="sizes" 
                                     className="form-select mb-3" 
-                                    // value={size}
+                                    defaultValue="Size"
                                     onChange={(e) => {setSize(e.target.value)}}>
-                                        <option selected disabled value='Size'>Size</option>
+                                        <option disabled value='Size'>Size</option>
                                         {product.size.map((size, idx) => {
                                             return (<option value={size} key={idx}>{size}</option>)
                                         })}
@@ -63,9 +64,9 @@ const SingleProduct = () => {
                                     name="colors" 
                                     id="colors" 
                                     className="form-select mb-3" 
-                                    // value={color}
+                                    defaultValue="Color"
                                     onChange={(e) => {setColor(e.target.value)}}>
-                                        <option selected disabled value='Color'>Color</option>
+                                        <option disabled value='Color'>Color</option>
                                         {product.color.map((color, idx) => {
                                             return (<option value={color} key={idx}>{color}</option>)
                                         })}
