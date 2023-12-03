@@ -2,24 +2,31 @@
 
 import { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addToCart } from '../../Store/Reducers/cartSlice';
 
 const SingleProduct = () => {
+
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
 
     const params = useParams()
-    console.log(params)
 
     const {singlePro} = useSelector((state) => state.filterProducts)
-    console.log('singlePro Here', singlePro)
 
     const [size, setSize] = useState('size')
     console.log('size ', size)
 
     const [color, setColor] = useState('color')
     console.log('color ', color)
+
+    // For Handle Add To Cart
+    const handleAddToCart = (product) => {
+        console.log('Add to Cart')
+        dispatch(addToCart(product))
+    }
 
     return (
         <div className="single-product sec-padd">
@@ -73,7 +80,10 @@ const SingleProduct = () => {
                                 size="lg" 
                                 variant="outline-success" 
                                 ripple='true'
-                                onClick={() => navigate(`/filterProducts/${params.type}`)}
+                                onClick={() => {
+                                    navigate(`/filterProducts/${params.type}`, {replace : true})
+                                    handleAddToCart(product)
+                                }}
                                 >Add To Cart</Button>
                             </div>
                         </div>
