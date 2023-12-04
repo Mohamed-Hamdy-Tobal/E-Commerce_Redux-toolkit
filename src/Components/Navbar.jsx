@@ -5,8 +5,15 @@ import logo from '../assets/images/logo.png'
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector } from "react-redux";
 
 export const NavBar = () => {
+
+    const {cartTotalQuantity} = useSelector((state) => state.cart)
+
+    console.log('cartTotalQuantity', cartTotalQuantity)
+
+
     return (
         <Navbar expand="lg" className="bg-white">
             <Container>
@@ -20,11 +27,12 @@ export const NavBar = () => {
                         </svg>
                         <span className="m-0 ms-1 nav-item">Whish List</span>
                     </Link>
-                    <Link to="/cart" className="nav-link">
+                    <Link to="/cart" className="nav-link position-relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-handbag nav-item" viewBox="0 0 16 16">
                             <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2m3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6z"/>
                         </svg>
                         <span className="m-0 ms-1 nav-item">Shopping Bag</span>
+                        {cartTotalQuantity? (<span className=" position-absolute top-50 start-100 translate-middle text-center text-light rounded-circle" style={{ width: '25px',height: '25px',lineHeight: '25px',marginLeft: '10px', backgroundColor: 'var(--main-color)'}}>{cartTotalQuantity}</span>): ''}
                     </Link>
                 </Nav>
                 </Navbar.Collapse>

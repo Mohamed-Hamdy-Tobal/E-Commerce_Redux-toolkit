@@ -47,10 +47,15 @@ nav .logo {
 }
 nav .links {
     gap: 15px;
+    transition: var(--main-trans);
 }
 nav .nav-item {
     color: #333;
     font-weight: 600;
+    transition: var(--main-trans);
+}
+nav .nav-link:hover .nav-item{
+    color: var(--main-color);
 }
 nav .navbar-toggler {
     margin-left: auto;
