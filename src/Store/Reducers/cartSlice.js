@@ -13,6 +13,7 @@ const productsSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
 
+            // if -1 mean item not exist then add it, else 1 then it exists and increase the the number of them
             const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
 
             if (itemIndex >= 0) {
@@ -25,10 +26,35 @@ const productsSlice = createSlice({
             }
 
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+        },
+        removeFromCart: (state, action) => {
+            const nextCartItem = state.cartItems.filter((item) => item.id !== action.payload.id)
+            state.cartItems = nextCartItem
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+            toast.error(`${action.payload.name} remove from cart`, {position: 'bottom-left'})
+        },
+        decreaseIndex : (state, action) => {
+            const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
+
+            if (state.cartItems[itemIndex].cartQuantity > 1) {
+                state.cartItems[itemIndex].cartQuantity -= 1
+                toast.info(`Decreased ${action.payload.name} cart quantity`, {position: 'bottom-left'})
+            } else if (state.cartItems[itemIndex].cartQuantity === 1) {
+                const nextCartItem = state.cartItems.filter((item) => item.id !== action.payload.id)
+                state.cartItems = nextCartItem
+                toast.error(`${action.payload.name} remove from cart`, {position: 'bottom-left'})
+            }
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+        },
+        clearCart: (state) => {
+            state.cartItems = []
+            toast.error(`Cart Deleted`, {position: 'bottom-left'})
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+
         }
     }
 })
 
-export const { addToCart } = productsSlice.actions
+export const { addToCart, removeFromCart, decreaseIndex, clearCart } = productsSlice.actions
 
 export default productsSlice.reducer

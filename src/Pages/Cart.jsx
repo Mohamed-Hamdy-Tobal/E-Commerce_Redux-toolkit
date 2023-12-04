@@ -1,13 +1,29 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { addToCart, clearCart, decreaseIndex, removeFromCart } from '../Store/Reducers/cartSlice';
 
 export const Cart = () => {
 
+    const dispatch = useDispatch()
+
     const {cartItems, cartTotalAmount} = useSelector((state) => state.cart)
     console.log('cartItems', cartItems)
+
+    const handleRemoveFromCart = (item) => {
+        dispatch(removeFromCart(item))
+    }
+    const handleDecrease = (item) => {
+        dispatch(decreaseIndex(item))
+    }
+    const handleIncrease = (item) => {
+        dispatch(addToCart(item))
+    }
+    const handleClear = () => {
+        dispatch(clearCart())
+    }
 
     return (
         <div className="cart-container sec-padd">
@@ -40,14 +56,14 @@ export const Cart = () => {
                                             <div className="cart-item-details ps-3">
                                                 <h3>{item.type}</h3>
                                                 <p>{item.name}</p>
-                                                <button className='remove'>Remove</button>
+                                                <button className='remove' onClick={() => {handleRemoveFromCart(item)}}>Remove</button>
                                             </div>
                                         </div>
                                         <div className="cart-product-price">{item.price}</div>
                                         <div className="cart-product-quantity d-flex align-items-center justify-content-center">
-                                            <button className='decrement'>-</button>
+                                            <button className='decrement' onClick={() => {handleDecrease(item)}}>-</button>
                                             <div className="count">{item.cartQuantity}</div>
-                                            <button className='increment'>+</button>
+                                            <button className='increment' onClick={() => {handleIncrease(item)}}>+</button>
                                         </div>
                                         <div className="cart-product-total">{item.price * item.cartQuantity}</div>
                                     </div>
@@ -55,7 +71,7 @@ export const Cart = () => {
                             })}
                         </div>
                         <div className="cart-summary d-flex justify-content-between align-items-baseline pt-4">
-                            <button className="clear-cart btn btn btn-outline-secondary">Clear Cart</button>
+                            <button className="clear-cart btn btn btn-outline-secondary" onClick={() => {handleClear()}}>Clear Cart</button>
                             <div className="check-out">
                                 <div className="subtotal d-flex justify-content-between align-items-baseline fs-5">
                                     <span className='fw-bolder fs-4'>Subtotal</span>
@@ -75,5 +91,3 @@ export const Cart = () => {
         </div> 
     )
 }
-
-// 7:30
