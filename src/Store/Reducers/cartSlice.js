@@ -51,10 +51,20 @@ const productsSlice = createSlice({
             toast.error(`Cart Deleted`, {position: 'bottom-left'})
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
 
+        },
+        getTotals : (state) => {
+            // Total Amount In The Cart
+            const totalQuantity = state.cartItems.reduce((acc, item) => acc + item.cartQuantity, 0)
+
+            // Total Amount Of Products
+            const totalAmount = state.cartItems.reduce((acc, item) => acc + item.price * item.cartQuantity, 0)
+            
+            state.cartTotalQuantity = totalQuantity
+            state.cartTotalAmount = totalAmount
         }
     }
 })
 
-export const { addToCart, removeFromCart, decreaseIndex, clearCart } = productsSlice.actions
+export const { addToCart, removeFromCart, decreaseIndex, clearCart, getTotals } = productsSlice.actions
 
 export default productsSlice.reducer

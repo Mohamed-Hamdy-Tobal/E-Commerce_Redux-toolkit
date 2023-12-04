@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { addToCart, clearCart, decreaseIndex, removeFromCart } from '../Store/Reducers/cartSlice';
+import { addToCart, clearCart, decreaseIndex, removeFromCart, getTotals } from '../Store/Reducers/cartSlice';
 
 export const Cart = () => {
 
@@ -24,6 +25,10 @@ export const Cart = () => {
     const handleClear = () => {
         dispatch(clearCart())
     }
+
+    useEffect(() => {
+        dispatch(getTotals())
+    }, [dispatch, cartTotalAmount, cartItems])
 
     return (
         <div className="cart-container sec-padd">
