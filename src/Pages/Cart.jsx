@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Container } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -47,6 +48,7 @@ export const Cart = () => {
                     <div className="cart-items-table">
                         <div className="table-titles">
                             <h3 className="product-title">Product</h3>
+                            <h3 className="product-size-color d-none d-md-block">Size / Color</h3>
                             <h3 className="price">price</h3>
                             <h3 className="quantity">Quantity</h3>
                             <h3 className="total">Total</h3>
@@ -55,17 +57,21 @@ export const Cart = () => {
                         <div className="cart-item-list pb-3">
                             {cartItems.map((item) => {
                                 return (
-                                    <div className="cart-item" key={item.id}>
+                                    <div className="cart-item position-relative" key={item.id}>
                                         <div className="cart-product d-flex">
                                             <img src={item.img} alt={item.name} className='me-1' style={{width: "80px", maxWidth: "100%"}} />
                                             <div className="cart-item-details ps-3">
                                                 <h3>{item.type}</h3>
                                                 <p>{item.name}</p>
-                                                <button className='remove' onClick={() => {handleRemoveFromCart(item)}}>Remove</button>
+                                                <button className='remove' onClick={() => {handleRemoveFromCart(item)}}>Remove <FontAwesomeIcon icon={faTrash} /></button>
                                             </div>
                                         </div>
-                                        <div className="cart-product-price">{item.price}</div>
-                                        <div className="cart-product-quantity d-flex align-items-center justify-content-center">
+                                        <div className="cart-product-color-size d-flex flex-md-column justify-content-center gap-md-2">
+                                            <span className='single-size'>{item.singleSize}</span>
+                                            <span className='single-color'>{item.singleColor}</span>
+                                        </div>
+                                        <div className="cart-product-price"><span className='pro-price'>{item.price}</span></div>
+                                        <div className="cart-product-quantity d-flex align-items-center justify-content-center gap-3 p-2 pt-0 pb-0">
                                             <button className='decrement' onClick={() => {handleDecrease(item)}}>-</button>
                                             <div className="count">{item.cartQuantity}</div>
                                             <button className='increment' onClick={() => {handleIncrease(item)}}>+</button>
@@ -75,7 +81,7 @@ export const Cart = () => {
                                 )
                             })}
                         </div>
-                        <div className="cart-summary d-flex justify-content-between align-items-baseline pt-4">
+                        <div className="cart-summary d-flex justify-content-between align-items-baseline pt-4 flex-wrap row-gap-3">
                             <button className="clear-cart btn btn btn-outline-secondary" onClick={() => {handleClear()}}>Clear Cart</button>
                             <div className="check-out">
                                 <div className="subtotal d-flex justify-content-between align-items-baseline fs-5">

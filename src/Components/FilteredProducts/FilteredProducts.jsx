@@ -19,7 +19,7 @@ const FilteredProducts = () => {
                         <div className="d-flex justify-content-center align-items-center flex-wrap">
                             {filterProducts.map((product, idx) => {
                                 return (
-                                    <div className="f p-3 card-product" key={idx}>
+                                    <div className="p-3 card-product" key={idx}>
                                         <ProductCard 
                                         id={product.id} 
                                         name={product.name} 

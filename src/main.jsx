@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import { store } from "./Store/Store";
 import FilteredProducts from "./Components/FilteredProducts/FilteredProducts";
 import SingleProduct from "./Components/FilteredProducts/SingleProduct";
+import SignIn from "./Pages/Log/SignIn";
+// import { RequireAuth } from "./Components/RequireAuth";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +35,10 @@ const routes = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart/>
+      },
+      {
+        path: 'signin',
+        element: <SignIn/>
       }
     ]
   }

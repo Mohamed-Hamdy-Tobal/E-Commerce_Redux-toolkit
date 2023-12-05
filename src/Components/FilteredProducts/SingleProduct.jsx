@@ -26,7 +26,9 @@ const SingleProduct = () => {
     // For Handle Add To Cart
     const handleAddToCart = (product) => {
         console.log('Add to Cart')
-        dispatch(addToCart(product))
+        dispatch(addToCart({...product, 
+            singleColor:color !== 'color'? color: 'black', 
+            singleSize:size !== 'size' ? size: 'M'}))
     }
 
     return (
