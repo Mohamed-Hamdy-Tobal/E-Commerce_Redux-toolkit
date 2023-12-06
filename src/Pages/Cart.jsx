@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Container } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { addToCart, clearCart, decreaseIndex, removeFromCart, getTotals } from '../Store/Reducers/cartSlice';
+import { addToCart, clearCart, decreaseIndex, removeFromCart, getTotals, CheckCart } from '../Store/Reducers/cartSlice';
 
 export const Cart = () => {
 
@@ -25,6 +25,9 @@ export const Cart = () => {
     }
     const handleClear = () => {
         dispatch(clearCart())
+    }
+    const handleCheck = () => {
+        dispatch(CheckCart())
     }
 
     useEffect(() => {
@@ -89,7 +92,7 @@ export const Cart = () => {
                                     <span className="amount">${cartTotalAmount}</span>
                                 </div>
                                 <p>Taxes and shipping calculated at checkout</p>
-                                <button className='btn btn-success check'>Check Out</button>
+                                <button className='btn btn-success check' onClick={() => {handleCheck()}}>Check Out</button>
                                 <div className="start-shopping" style={{fontSize: "16px"}}>
                                     <FontAwesomeIcon icon={faArrowLeft} />
                                     <Link to="/" className="start-shopping" style={{fontSize: "16px"}}>Continue Shopping</Link>

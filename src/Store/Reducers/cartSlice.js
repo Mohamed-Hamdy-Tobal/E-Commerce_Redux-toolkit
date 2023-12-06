@@ -61,10 +61,15 @@ const productsSlice = createSlice({
             
             state.cartTotalQuantity = totalQuantity
             state.cartTotalAmount = totalAmount
+        },
+        CheckCart: (state) => {
+            state.cartItems = []
+            toast.success(`Order has been sent, You'll receive a message with details`, {position: 'bottom-left'})
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
         }
     }
 })
 
-export const { addToCart, removeFromCart, decreaseIndex, clearCart, getTotals } = productsSlice.actions
+export const { addToCart, removeFromCart, decreaseIndex, clearCart, getTotals, CheckCart } = productsSlice.actions
 
 export default productsSlice.reducer

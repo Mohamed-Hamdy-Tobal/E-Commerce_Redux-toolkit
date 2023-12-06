@@ -14,7 +14,7 @@ export const RequireAuth = ({ children }) => {
     }, [user.authUser]);
 
     // If the user is not authenticated, redirect to signin
-    if (!authenticated) {
+    if (authenticated) {
         return <Navigate to='/signin' />;
     }
 

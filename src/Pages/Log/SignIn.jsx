@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../Store/Reducers/authSlice'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
 
 
@@ -9,7 +9,10 @@ const userInfo = {name:'', password: ''}
 
 const SignIn = () => {
 
-    // const navigate = useNavigate()
+    const { authUserName,  authUserPass} = useSelector((state) => state.auth.user);
+
+
+    const navigate = useNavigate()
     
     const dispatch = useDispatch()
 
@@ -20,7 +23,6 @@ const SignIn = () => {
             ...user,
             [e.target.name]: e.target.value
         })
-        console.log(e.target.value)
     }
 
     const handleSubmit = (e) => {
@@ -28,7 +30,7 @@ const SignIn = () => {
         dispatch(login(user))
         console.log(user)
         setUser(userInfo)
-        console.log(userInfo)
+        navigate('/')
     }
 
     return (
@@ -40,10 +42,12 @@ const SignIn = () => {
                     <div className="input-field">
                         <label htmlFor="name" className={`active`}>Name: </label>
                         <input type="text" name="name" id="name" onChange={handleUser} value={user.name}/>
+                        {authUserName && <span className='err-input'>Should be From 3 to 10 character</span>}
                     </div>
                     <div className="input-field">
                         <label htmlFor="password" className={`active`}>Password: </label>
                         <input type="password" name="password" id="password" onChange={handleUser} value={user.password}/>
+                        {authUserPass && <span className='err-input'>Should be From 6 to 10 different character</span>}
                     </div>
                     <div className="input-field">
                         <button className='btn btn-primary'>Login</button>

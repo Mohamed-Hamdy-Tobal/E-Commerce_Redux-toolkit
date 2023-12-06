@@ -58,7 +58,6 @@ nav .nav-link:hover .nav-item{
     color: var(--main-color);
 }
 nav .navbar-toggler {
-    margin-left: auto;
     flex: 1;
     display: flex;
     align-items: center;
@@ -249,6 +248,20 @@ nav .nav-link:hover {
     width: 100%;
     height: 100%;
 }
+.main-clear button {
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+    color: #fff !important;
+    transition: var(--main-trans);
+    -webkit-transition: var(--main-trans);
+    -moz-transition: var(--main-trans);
+    -ms-transition: var(--main-trans);
+    -o-transition: var(--main-trans);
+}
+.main-clear button:hover {
+    background-color: #146c43 !important;
+    border-color: #146c43 !important;
+}
 /* --- End Cards --- */
 
 /* --- Start Single Product --- */
@@ -340,6 +353,10 @@ nav .nav-link:hover {
     line-height: 25px;
     border-radius: 5px;
     cursor: pointer;
+    transition: var(--main-trans);
+}
+.cart-container .cart-product-quantity button:hover {
+    background: #d2392e;
 }
 @media (min-width: 576px) and (max-width: 767px) {
     .cart-container .cart-product-quantity button {
@@ -414,6 +431,10 @@ nav .nav-link:hover {
     position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.input-field .err-input {
+    color: red;
+    animation: flash 1s infinite alternate; 
 }
 .input-field>label {
     color: #9e9e9e;
@@ -508,18 +529,6 @@ input:not([type]).validate+label,input[type=text]:not(.browser-default).validate
     width: 100%
 }
 
-input.valid:not([type]),input.valid:not([type]):focus,input.valid[type=text]:not(.browser-default),input.valid[type=text]:not(.browser-default):focus,input.valid[type=password]:not(.browser-default),input.valid[type=password]:not(.browser-default):focus,input.valid[type=email]:not(.browser-default),input.valid[type=email]:not(.browser-default):focus,input.valid[type=url]:not(.browser-default),input.valid[type=url]:not(.browser-default):focus,input.valid[type=time]:not(.browser-default),input.valid[type=time]:not(.browser-default):focus,input.valid[type=date]:not(.browser-default),input.valid[type=date]:not(.browser-default):focus,input.valid[type=datetime]:not(.browser-default),input.valid[type=datetime]:not(.browser-default):focus,input.valid[type=datetime-local]:not(.browser-default),input.valid[type=datetime-local]:not(.browser-default):focus,input.valid[type=tel]:not(.browser-default),input.valid[type=tel]:not(.browser-default):focus,input.valid[type=number]:not(.browser-default),input.valid[type=number]:not(.browser-default):focus,input.valid[type=search]:not(.browser-default),input.valid[type=search]:not(.browser-default):focus,textarea.materialize-textarea.valid,textarea.materialize-textarea.valid:focus,.select-wrapper.valid>input.select-dropdown {
-    border-bottom: 1px solid #4CAF50;
-    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
-    box-shadow: 0 1px 0 0 #4CAF50
-}
-
-input.invalid:not([type]),input.invalid:not([type]):focus,input.invalid[type=text]:not(.browser-default),input.invalid[type=text]:not(.browser-default):focus,input.invalid[type=password]:not(.browser-default),input.invalid[type=password]:not(.browser-default):focus,input.invalid[type=email]:not(.browser-default),input.invalid[type=email]:not(.browser-default):focus,input.invalid[type=url]:not(.browser-default),input.invalid[type=url]:not(.browser-default):focus,input.invalid[type=time]:not(.browser-default),input.invalid[type=time]:not(.browser-default):focus,input.invalid[type=date]:not(.browser-default),input.invalid[type=date]:not(.browser-default):focus,input.invalid[type=datetime]:not(.browser-default),input.invalid[type=datetime]:not(.browser-default):focus,input.invalid[type=datetime-local]:not(.browser-default),input.invalid[type=datetime-local]:not(.browser-default):focus,input.invalid[type=tel]:not(.browser-default),input.invalid[type=tel]:not(.browser-default):focus,input.invalid[type=number]:not(.browser-default),input.invalid[type=number]:not(.browser-default):focus,input.invalid[type=search]:not(.browser-default),input.invalid[type=search]:not(.browser-default):focus,textarea.materialize-textarea.invalid,textarea.materialize-textarea.invalid:focus,.select-wrapper.invalid>input.select-dropdown,.select-wrapper.invalid>input.select-dropdown:focus {
-    border-bottom: 1px solid #F44336;
-    -webkit-box-shadow: 0 1px 0 0 #F44336;
-    box-shadow: 0 1px 0 0 #F44336
-}
-
 input:not([type]).valid ~ .helper-text[data-success],input:not([type]):focus.valid ~ .helper-text[data-success],input:not([type]).invalid ~ .helper-text[data-error],input:not([type]):focus.invalid ~ .helper-text[data-error],input[type=text]:not(.browser-default).valid ~ .helper-text[data-success],input[type=text]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=text]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=text]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=password]:not(.browser-default).valid ~ .helper-text[data-success],input[type=password]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=password]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=password]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=email]:not(.browser-default).valid ~ .helper-text[data-success],input[type=email]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=email]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=email]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=url]:not(.browser-default).valid ~ .helper-text[data-success],input[type=url]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=url]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=url]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=time]:not(.browser-default).valid ~ .helper-text[data-success],input[type=time]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=time]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=time]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=date]:not(.browser-default).valid ~ .helper-text[data-success],input[type=date]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=date]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=date]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=datetime]:not(.browser-default).valid ~ .helper-text[data-success],input[type=datetime]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=datetime]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=datetime]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=datetime-local]:not(.browser-default).valid ~ .helper-text[data-success],input[type=datetime-local]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=datetime-local]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=datetime-local]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=tel]:not(.browser-default).valid ~ .helper-text[data-success],input[type=tel]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=tel]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=tel]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=number]:not(.browser-default).valid ~ .helper-text[data-success],input[type=number]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=number]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=number]:not(.browser-default):focus.invalid ~ .helper-text[data-error],input[type=search]:not(.browser-default).valid ~ .helper-text[data-success],input[type=search]:not(.browser-default):focus.valid ~ .helper-text[data-success],input[type=search]:not(.browser-default).invalid ~ .helper-text[data-error],input[type=search]:not(.browser-default):focus.invalid ~ .helper-text[data-error],textarea.materialize-textarea.valid ~ .helper-text[data-success],textarea.materialize-textarea:focus.valid ~ .helper-text[data-success],textarea.materialize-textarea.invalid ~ .helper-text[data-error],textarea.materialize-textarea:focus.invalid ~ .helper-text[data-error],.select-wrapper.valid .helper-text[data-success],.select-wrapper.invalid ~ .helper-text[data-error] {
     color: transparent;
     -webkit-user-select: none;
@@ -583,14 +592,14 @@ input:not([type])+label:after,input[type=text]:not(.browser-default)+label:after
 
 
 @media (max-width: 991px) {
-    .collapse {
+    nav .collapse {
         display: flex !important;
         transition: .3s;
     }
-    .collapse:not(.show) {
+    nav .collapse:not(.show) {
         display: flex !important;
     }
-    .navbar-collapse {
+    nav .navbar-collapse {
         transform: scaleY(1);
         flex-basis: 100%;
         flex-grow: 1;
@@ -622,6 +631,11 @@ input:not([type])+label:after,input[type=text]:not(.browser-default)+label:after
         -moz-transform: scaleY(0) !important;
         -ms-transform: scaleY(0) !important;
         -o-transform: scaleY(0) !important;
+    }
+    nav .user-small {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
     }
     .close-button {
         display: block !important;
@@ -735,5 +749,25 @@ input:not([type])+label:after,input[type=text]:not(.browser-default)+label:after
     .footer .box .copyright {
         width: 100% !important;
         text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    nav .user-small {
+        justify-content: center;
+    }
+    nav .user-small span{
+        font-size: 12px;
+    }
+}
+
+
+/* Animation */
+@keyframes flash {
+    from {
+        opacity: 0.8;
+    }
+    to {
+        opacity: 0.4;
     }
 }
