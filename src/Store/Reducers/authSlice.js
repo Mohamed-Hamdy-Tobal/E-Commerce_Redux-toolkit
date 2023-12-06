@@ -56,7 +56,9 @@ const authSlice = createSlice({
             state.user = {
                 name: '',
                 password: '',
-                authUser: false
+                authUserName: false,
+                authUserPass: false,
+                authUser: true
             }
             sessionStorage.clear()
             localStorage.clear()
