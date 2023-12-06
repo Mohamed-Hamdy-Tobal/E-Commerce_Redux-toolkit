@@ -33,7 +33,7 @@ export const NavBar = () => {
         <Navbar expand="lg" className="bg-white">
             <Container>
                 <Link to='/' className="navbar-brand"><div className='image-logo'><img src={logo} alt='img' className="logo"/></div></Link>
-                {!user.name ? <Link to='/signin' className="nav-link user-small d-flex d-lg-none"><span className="m-0 ms-1 nav-item text-black">Hi {user.name}</span></Link> : ''}
+                {!user.authUser ? <Link to='/signin' className="nav-link user-small d-flex d-lg-none"><span className="m-0 ms-1 nav-item text-black">Hi {user.name}</span></Link> : ''}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => {
                         return(
                             toggleHeader()
