@@ -28,14 +28,12 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login(user))
-        console.log(user)
         setUser(userInfo)
         navigate('/')
     }
 
     return (
         <div className="sign-page sec-padd">
-            {/* {error && <Alert variant='danger' style={{position: 'absolute',width: '80%',top: '72.75px',left: '50%',transform:' translateX(-50%)'}}>{error}</Alert>} */}
             <div className='container'>
                 <form action="" className="white" onSubmit={handleSubmit}>
                     <h5 className="grey-text text-darken-3 page-head">Sign In</h5>

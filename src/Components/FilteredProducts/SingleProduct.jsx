@@ -15,17 +15,13 @@ const SingleProduct = () => {
     const params = useParams()
 
     const {singlePro} = useSelector((state) => state.filterProducts)
-    console.log('singlePro ', singlePro)
 
     const [size, setSize] = useState('size')
-    console.log('size ', size)
 
     const [color, setColor] = useState('color')
-    console.log('color ', color)
 
     // For Handle Add To Cart
     const handleAddToCart = (product) => {
-        console.log('Add to Cart')
         dispatch(addToCart({...product, 
             singleColor:color !== 'color'? color: 'black', 
             singleSize:size !== 'size' ? size: 'M'}))

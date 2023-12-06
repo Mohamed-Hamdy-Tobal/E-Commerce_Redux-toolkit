@@ -19,10 +19,6 @@ const authSlice = createSlice({
             const passwordValidation = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,10}$/i.test(userID.password)
             state.user = userID
 
-            console.log(userID)
-            console.log(userValidation)
-            console.log(passwordValidation)
-
             if (userValidation && passwordValidation) {
                 state.user.authUserName = false;
                 state.user.authUserPass = false;

@@ -12,8 +12,6 @@ const FilteredProducts = () => {
 
     const {filterProducts, error} = useSelector((state) => state.filterProducts)
     const {type} = useParams()
-    console.log(type)
-    console.log(filterProducts)
 
     const genderBtn = ['Male', 'Female']
     const colorBtns = ['red', 'green', 'yellow', 'blue', 'purple', 'orange', 'brown', 'black']

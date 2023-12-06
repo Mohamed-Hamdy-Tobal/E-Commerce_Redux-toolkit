@@ -12,7 +12,6 @@ export const Cart = () => {
     const dispatch = useDispatch()
 
     const {cartItems, cartTotalAmount} = useSelector((state) => state.cart)
-    console.log('cartItems', cartItems)
 
     const handleRemoveFromCart = (item) => {
         dispatch(removeFromCart(item))

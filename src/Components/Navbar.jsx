@@ -58,7 +58,6 @@ export const NavBar = () => {
                         </Link>
                         <Link to="/cart" className={`nav-link position-relative ${isHeaderOpen ? 'closed-special' : ''}`} onClick={(e) => {
                             if (Array(e.target.className)[0].length > 26) {
-                                console.log('yes true')
                                 return(
                                     toggleHeader()
                                 )
