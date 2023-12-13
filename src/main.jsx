@@ -11,7 +11,7 @@ import { store } from "./Store/Store";
 import FilteredProducts from "./Components/FilteredProducts/FilteredProducts";
 import SingleProduct from "./Components/FilteredProducts/SingleProduct";
 import SignIn from "./Pages/Log/SignIn";
-import { RequireAuth } from "./Components/RequireAuth";
+// import { RequireAuth } from "./Components/RequireAuth";
 
 const routes = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const routes = createBrowserRouter([
     element: <Root/>,
     errorElement: <ErrorPage/>,
     children: [
-      {index: true, element: <RequireAuth><Home/></RequireAuth>},
+      {index: true, element: <Home/>},
       {
         path: '/cart',
         element: <Cart/>
